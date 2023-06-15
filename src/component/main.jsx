@@ -356,9 +356,9 @@ function FormComponent(){
 
     const [options, setOptions] = useState([])
     const [productsArray, setProductsArray] = useState([]);
-    let [count, setCount] = useState(1);
-    const [selectedValue, setSelectedValue] = useState({value: '234'});
-    const [selectedTitle, setSelectedTitle] = useState({value:'Морс со смородиной'})
+    let [count, setCount] = useState(0);
+    const [selectedValue, setSelectedValue] = useState({value: '0'});
+    const [selectedTitle, setSelectedTitle] = useState({value:'-'})
     let [totalPriceValue, setTotalPriceValue] = useState(1100);
 
     useEffect(() => {
@@ -392,13 +392,13 @@ function FormComponent(){
         setSelectedValue({value: e.target.value});
     }
 
-    let ToNumber = Math.floor(selectedValue.value);
+    let ToNumber = Number(selectedValue.value);
  
 
     let PushProduct = (e) => {
         e.preventDefault();
         let addedArr = [...productsArray];
-        addedArr.push({count: count, title: selectedTitle.value, price: ToNumber * count});
+        addedArr.push({count: count, title: selectedTitle.value, price: ToNumber});
         setProductsArray(addedArr);
         setTotalPriceValue(')');
        }
@@ -412,7 +412,7 @@ function FormComponent(){
         <AddedProductCard>
         <AddedProductName>{item.title}</AddedProductName>
         <AddedProductCount>{item.count} шт.</AddedProductCount>
-        <AddedProductPrice>{item.price * item.count}.00</AddedProductPrice>
+        <AddedProductPrice>{item.price * item.count}</AddedProductPrice> 
     </AddedProductCard>))
 
     return(
@@ -422,13 +422,14 @@ function FormComponent(){
             onSubmit={ e => {e.preventDefault()}}>
                 <StyledLabel>Выберите продукцию
                 <StyledSelect onChange={handleSelectedChange}>
+                    <StyledOption></StyledOption>
                 {optionsList}
                 <HiddenValue value={selectedValue.value}></HiddenValue>
                 <HiddenTitle value={selectedTitle.title}></HiddenTitle>
                 </StyledSelect>
                 </StyledLabel>
                 <StyledLabel>Введите количество
-                <StyledInput required type='number' placeholder="1" onChange={handleCountChange}></StyledInput>
+                <StyledInput required type='number'  onChange={handleCountChange} value={count}></StyledInput>
                 </StyledLabel>
                 <FormButton type = 'button' onClick={PushProduct}>Добавить</FormButton>
             </MainForm>
