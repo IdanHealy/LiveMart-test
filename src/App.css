@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
   width: 100%;
 }
@@ -9,6 +10,10 @@ html {
 .App {
   text-align: center;
   width: 100%;
+=======
+.App {
+  text-align: center;
+>>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 }
 
 .App-logo {
@@ -45,7 +50,10 @@ html {
     transform: rotate(360deg);
   }
 }
+<<<<<<< HEAD
 
 ::-webkit-scrollbar {
   display: none;
 }
+=======
+>>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
