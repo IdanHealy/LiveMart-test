@@ -6,12 +6,10 @@ import axios from "axios";
 
 const Main = styled.main`
     @media(min-width: 1440px) {
-        padding-left: 26px;
-        padding-top: 45px;
         display: flex;
         flex-direction: column;
     }
-    padding-left: 24px;
+
     padding-top: 25px;
     flex-direction: column;
     display: flex;
@@ -19,11 +17,22 @@ const Main = styled.main`
     justify-content: center;
 `;
 
+const MainWrapper = styled.div`
+    min-width: 375px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+`
+
 const FormAndTableContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     @media(min-width: 1440px){
         flex-direction: row;
+        align-items: baseline;
     }
 `
 
@@ -33,8 +42,11 @@ const MainForm = styled.form`
     max-width: 394px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     @media(min-width: 1440px){
         margin-right: 51px;
+        align-items: baseline;
     }
 `
 
@@ -43,6 +55,8 @@ const StyledLabel = styled.label`
     font-size: 24px;
     font-weight: 300;
     line-height: 28px;
+    display: flex;
+    flex-direction: column;
 `
 
 const StyledSelect = styled.select`
@@ -141,7 +155,7 @@ const TableContainer = styled.div`
      @media(min-width: 1440px) {
         width: 920px;
         border-bottom: 1px solid #2FA6EA;
-        height: inherit;
+        height: 700px;
         margin-bottom: 18px;
         max-width: inherit;
     }
@@ -163,6 +177,8 @@ const MainTable = styled.table`
     max-height: 400px;
     align-self: flex-start;
     align-items: start;
+    overflow-y: scroll;
+    scrollbar-width: none;
 `
 
 const StyledTR = styled.tr`
@@ -210,7 +226,6 @@ const StyledTH = styled.th`
 const TotalValueDisplay = styled.div`
     width: 324px;
     height: 36px;
-    text-align: end;
     margin-bottom: 37px;
     font-family: Roboto;
     font-size: 24px;
@@ -218,12 +233,16 @@ const TotalValueDisplay = styled.div`
     line-height: 28px;
     letter-spacing: 0em;
     text-align: right;
+    align-self: center;
 
     @media(min-width: 1440px){
-        width: 920px;
+        min-width: 1360px;
         text-align: right;
-        margin-left: 445px;
         margin-bottom: 25px;
+        align-self: flex-end;
+        width: inherit;
+        max-width: 1440px;
+        align-self: center;
     }
     
 `
@@ -244,10 +263,12 @@ const SaveButton = styled.button`
     padding: 0px;
     margin-bottom: 44px;
     cursor: pointer;
+    align-self: center;
     @media(min-width: 1440px){
         width: 394px;
-        margin-left: 734px;
-        margin-bottom: 64px; 
+        margin-left: 0px;
+        margin-bottom: 64px;
+        align-self: center;
     }
     &:hover{
         opacity: 0.8;
@@ -429,6 +450,7 @@ function FormComponent(){
             axios.post('https://dev-su.eda1.ru/test_task/save.php',order)
               .then(function (response) {
                 setOrderNumber(`№ заказа ${response.data.code}`)
+                setProductsArray([]);
               })
               .catch(function (error) {
                 console.log(error);
@@ -441,13 +463,14 @@ function FormComponent(){
         <AddedProductCard>
         <AddedProductName>{item.title}</AddedProductName>
         <AddedProductCount>{item.count} шт.</AddedProductCount>
-        <AddedProductPrice>{item.price * item.count}</AddedProductPrice>
+        <AddedProductPrice>{item.price * item.count} р.</AddedProductPrice>
     </AddedProductCard>
     ))
 
     return(
         <>
         <Main>
+        <MainWrapper>
             <FormAndTableContainer>
                 <MainForm onSubmit={e => {e.preventDefault()}}>
                 <StyledLabel>Выберите продукцию
@@ -469,16 +492,14 @@ function FormComponent(){
                     <StyledTH>Стоимость</StyledTH>
                 </StyledTR>
                 <AddedProductCard>
-                    <AddedProductName>Борщевой набор номер три</AddedProductName>
-                    <AddedProductCount>11 шт.</AddedProductCount>
-                    <AddedProductPrice>1100.00</AddedProductPrice>
                 </AddedProductCard>
                 {renderProducts}
             </MainTable>
             </TableContainer>
             </FormAndTableContainer>
-            <TotalValueDisplay>Итого: {totalPriceValue}</TotalValueDisplay>
+            <TotalValueDisplay>Итого: {totalPriceValue} р.</TotalValueDisplay>
             <SaveButton onClick={SaveOrder}>{orderNumber}</SaveButton>
+            </MainWrapper>
         </Main>
                 <HiddenValue value={selectedValue.value}></HiddenValue>
                 <HiddenTitle value={selectedTitle.title}></HiddenTitle>

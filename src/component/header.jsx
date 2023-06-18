@@ -1,7 +1,10 @@
 import { styled } from "styled-components"
 
 const Header = styled.header`
+    width: 100%;
+    min-width: 375px;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     min-height: 60px;
@@ -9,11 +12,18 @@ const Header = styled.header`
     min-width: 375px;
     max-width: 100%;
     background-color: #755858;
-    padding-left: 26px;
-    min-width: 100%;
     position: sticky;
-    top: 0px;
-    
+    top: 0px; 
+`;
+
+const HeaderWraper = styled.div`
+    min-width: inherit;
+    width: inherit;
+    min-height: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 `;
 
 const HeaderText = styled.h1`
@@ -25,12 +35,15 @@ const HeaderText = styled.h1`
     text-align: left;
     margin: 0px;
     color: #ffffff;
+    margin-left: 24px;
 `
 
 export default function HeaderComponent(){
     return(
     <Header>
-        <HeaderText>Test project</HeaderText>
+        <HeaderWraper>
+            <HeaderText>Test project</HeaderText>
+        </HeaderWraper>
     </Header>
     )
 }

@@ -9,10 +9,8 @@ const Footer = styled.footer`
     align-self: flex-end;
     display: flex;
     justify-content: flex-end;
-    padding: 0px 29px 0px 0px;
     @media(min-width: 1440px){
         height: 199px;
-        padding: 0px 25px 0px 0px;
     }`
 
 
