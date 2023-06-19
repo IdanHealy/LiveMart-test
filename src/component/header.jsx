@@ -1,14 +1,11 @@
 import { styled } from "styled-components"
 
 const Header = styled.header`
-<<<<<<< HEAD
     width: 100%;
     min-width: 375px;
     display: flex;
     justify-content: center;
-=======
     display: flex;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     flex-direction: row;
     align-items: center;
     min-height: 60px;
@@ -16,23 +13,20 @@ const Header = styled.header`
     min-width: 375px;
     max-width: 100%;
     background-color: #755858;
-<<<<<<< HEAD
     position: sticky;
     top: 0px; 
 `;
 
 const HeaderWraper = styled.div`
-    min-width: inherit;
-    width: inherit;
+    width: 375px;
     min-height: inherit;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-=======
-    padding-left: 26px;
-    
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
+    @media(min-width: 1440px) {
+        width: 1440px;
+    }
 `;
 
 const HeaderText = styled.h1`
@@ -44,22 +38,15 @@ const HeaderText = styled.h1`
     text-align: left;
     margin: 0px;
     color: #ffffff;
-<<<<<<< HEAD
     margin-left: 24px;
-=======
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 `
 
 export default function HeaderComponent(){
     return(
     <Header>
-<<<<<<< HEAD
         <HeaderWraper>
             <HeaderText>Test project</HeaderText>
         </HeaderWraper>
-=======
-        <HeaderText>Test project</HeaderText>
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     </Header>
     )
 }

@@ -3,18 +3,18 @@ import {useEffect} from 'react';
 import { useState } from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
-
 const Main = styled.main`
     @media(min-width: 1440px) {
+        
+        padding-top: 45px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-
+    
     padding-top: 25px;
     flex-direction: column;
-    display: flex;
-    min-width: 375px;
     justify-content: center;
 `;
 
@@ -24,35 +24,14 @@ const MainWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-`
+  `
 
 const FormAndTableContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     @media(min-width: 1440px){
         flex-direction: row;
-        align-items: baseline;
-=======
-const Main = styled.main`
-    @media(min-width: 1440px) {
-        padding-left: 26px;
-        padding-top: 45px;
-        display: flex;
-        flex-direction: column;
-    }
-    padding-left: 24px;
-    padding-top: 25px;
-    flex-direction: column;
-`;
-
-const FormAndTableContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    @media(min-width: 1440px){
-        flex-direction: row;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     }
 `
 
@@ -62,16 +41,9 @@ const MainForm = styled.form`
     max-width: 394px;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    justify-content: center;
     align-items: center;
     @media(min-width: 1440px){
         margin-right: 51px;
-        align-items: baseline;
-=======
-    @media(min-width: 1440px){
-        margin-right: 51px;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     }
 `
 
@@ -80,11 +52,11 @@ const StyledLabel = styled.label`
     font-size: 24px;
     font-weight: 300;
     line-height: 28px;
-<<<<<<< HEAD
     display: flex;
+    align-items: center;
     flex-direction: column;
-=======
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
+    text-align: left;
+    align-items: flex-start;
 `
 
 const StyledSelect = styled.select`
@@ -165,6 +137,7 @@ const FormButton = styled.button`
     border: 1px solid #000000;
     border-radius: 4px;
     margin-bottom: 36px;
+    align-self: center;
     @media(min-width: 1440px) {
         width: 394px;
     }
@@ -183,11 +156,7 @@ const TableContainer = styled.div`
      @media(min-width: 1440px) {
         width: 920px;
         border-bottom: 1px solid #2FA6EA;
-<<<<<<< HEAD
-        height: 700px;
-=======
         height: inherit;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
         margin-bottom: 18px;
         max-width: inherit;
     }
@@ -197,11 +166,7 @@ const TableContainer = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
-<<<<<<< HEAD
-    
-=======
     max-height: 500px;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 `
 const MainTable = styled.table`
     @media(min-width: 1440px) {
@@ -210,16 +175,8 @@ const MainTable = styled.table`
     }
     width: 326px;
     min-height: 400px;
-<<<<<<< HEAD
-    max-height: 400px;
     align-self: flex-start;
     align-items: start;
-    overflow-y: scroll;
-    scrollbar-width: none;
-=======
-    align-self: flex-start;
-    align-items: start;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 `
 
 const StyledTR = styled.tr`
@@ -264,13 +221,23 @@ const StyledTH = styled.th`
     }
 `
 
+const ButtonAndDisplayWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    @media (min-width: 1400px) {
+        width: 1360px;
+    } 
+        
+`
+
 const TotalValueDisplay = styled.div`
     width: 324px;
     height: 36px;
-<<<<<<< HEAD
-=======
     text-align: end;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     margin-bottom: 37px;
     font-family: Roboto;
     font-size: 24px;
@@ -278,25 +245,12 @@ const TotalValueDisplay = styled.div`
     line-height: 28px;
     letter-spacing: 0em;
     text-align: right;
-<<<<<<< HEAD
-    align-self: center;
-
-    @media(min-width: 1440px){
-        min-width: 1360px;
-        text-align: right;
-        margin-bottom: 25px;
-        align-self: flex-end;
-        width: inherit;
-        max-width: 1440px;
-        align-self: center;
-=======
 
     @media(min-width: 1440px){
         width: 920px;
         text-align: right;
         margin-left: 445px;
         margin-bottom: 25px;
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     }
     
 `
@@ -317,19 +271,10 @@ const SaveButton = styled.button`
     padding: 0px;
     margin-bottom: 44px;
     cursor: pointer;
-<<<<<<< HEAD
     align-self: center;
     @media(min-width: 1440px){
         width: 394px;
-        margin-left: 0px;
-        margin-bottom: 64px;
-        align-self: center;
-=======
-    @media(min-width: 1440px){
-        width: 394px;
-        margin-left: 734px;
         margin-bottom: 64px; 
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     }
     &:hover{
         opacity: 0.8;
@@ -432,28 +377,21 @@ const HiddenValue = styled.span`
     display: none;
 `
 
-<<<<<<< HEAD
-const HiddenTitle = styled.span`
+const HiddenTitle = styled.div`
     display: none;
 `
 
 const HiddenID = styled.span`
     display: none;
 `
-=======
-const HiddenTitle = styled.div`
-    display: none;
-`
 
 
 
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 
 function FormComponent(){
 
     const [options, setOptions] = useState([])
     const [productsArray, setProductsArray] = useState([]);
-<<<<<<< HEAD
     const [count, setCount] = useState(0);
     const [selectedID, setSelectedID] = useState({value: 101});
     const [selectedValue, setSelectedValue] = useState({value: '234'});
@@ -461,12 +399,6 @@ function FormComponent(){
     let [totalPriceValue, setTotalPriceValue] = useState(0);
     let [order, setOrder] = useState([]);
     let [orderNumber, setOrderNumber] = useState('Сохранить');
-=======
-    let [count, setCount] = useState(0);
-    const [selectedValue, setSelectedValue] = useState({value: '0'});
-    const [selectedTitle, setSelectedTitle] = useState({value:'-'})
-    let [totalPriceValue, setTotalPriceValue] = useState(1100);
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 
     useEffect(() => {
         const getData = async () => {
@@ -483,13 +415,8 @@ function FormComponent(){
       },[]);
 
 
-<<<<<<< HEAD
     const optionsList = options.map((options) => (
         <StyledOption value={options.price} id={options.id}>{options.title}</StyledOption>))
-=======
-      const optionsList = options.map((options) => (
-        <StyledOption value={options.price} id={options.title}>{options.title}</StyledOption>))
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 
 
     const handleCountChange = (e) => {
@@ -497,7 +424,6 @@ function FormComponent(){
     }
 
     let handleSelectedChange = (e) => {
-<<<<<<< HEAD
         let i = e.nativeEvent.target.selectedIndex
         setSelectedTitle({value: e.nativeEvent.target[i].innerHTML})
         setSelectedValue({value: e.target.value});
@@ -507,22 +433,10 @@ function FormComponent(){
     let productPriceValueInNumber = Number(selectedValue.value);
     let productIDInNumber = Number(selectedID.value)
 
-=======
-        
-        let i = e.nativeEvent.target.selectedIndex
-            setSelectedTitle({value: e.nativeEvent.target[i].innerHTML})
-        
-        setSelectedValue({value: e.target.value});
-    }
-
-    let ToNumber = Number(selectedValue.value);
- 
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
 
     let PushProduct = (e) => {
         e.preventDefault();
         let addedArr = [...productsArray];
-<<<<<<< HEAD
         addedArr.push({count: count, title: selectedTitle.value, price: productPriceValueInNumber, id: productIDInNumber});
         setProductsArray(addedArr);
         let totalP = [];
@@ -553,27 +467,14 @@ function FormComponent(){
         }}
         
        
-=======
-        addedArr.push({count: count, title: selectedTitle.value, price: ToNumber});
-        setProductsArray(addedArr);
-        setTotalPriceValue(')');
-       }
-
-    
-
-    
-
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     const renderProducts = 
     productsArray.map((item) =>(
         <AddedProductCard>
         <AddedProductName>{item.title}</AddedProductName>
         <AddedProductCount>{item.count} шт.</AddedProductCount>
-<<<<<<< HEAD
         <AddedProductPrice>{item.price * item.count} р.</AddedProductPrice>
     </AddedProductCard>
     ))
-
     return(
         <>
         <Main>
@@ -588,26 +489,6 @@ function FormComponent(){
                 </StyledLabel>
                 <StyledLabel>Введите количество
                 <StyledInput required type='number' placeholder="0" onChange={handleCountChange} value={count}></StyledInput>
-=======
-        <AddedProductPrice>{item.price * item.count}</AddedProductPrice> 
-    </AddedProductCard>))
-
-    return(
-        <Main>
-            <FormAndTableContainer>
-            <MainForm 
-            onSubmit={ e => {e.preventDefault()}}>
-                <StyledLabel>Выберите продукцию
-                <StyledSelect onChange={handleSelectedChange}>
-                    <StyledOption></StyledOption>
-                {optionsList}
-                <HiddenValue value={selectedValue.value}></HiddenValue>
-                <HiddenTitle value={selectedTitle.title}></HiddenTitle>
-                </StyledSelect>
-                </StyledLabel>
-                <StyledLabel>Введите количество
-                <StyledInput required type='number'  onChange={handleCountChange} value={count}></StyledInput>
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
                 </StyledLabel>
                 <FormButton type = 'button' onClick={PushProduct}>Добавить</FormButton>
             </MainForm>
@@ -618,21 +499,14 @@ function FormComponent(){
                     <StyledTH>Количество</StyledTH>
                     <StyledTH>Стоимость</StyledTH>
                 </StyledTR>
-                <AddedProductCard>
-<<<<<<< HEAD
-=======
-                    <AddedProductName>Борщевой набор номер три</AddedProductName>
-                    <AddedProductCount>11 шт.</AddedProductCount>
-                    <AddedProductPrice>1100.00</AddedProductPrice>
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
-                </AddedProductCard>
                 {renderProducts}
             </MainTable>
             </TableContainer>
             </FormAndTableContainer>
-<<<<<<< HEAD
+            <ButtonAndDisplayWrapper>
             <TotalValueDisplay>Итого: {totalPriceValue} р.</TotalValueDisplay>
             <SaveButton onClick={SaveOrder}>{orderNumber}</SaveButton>
+            </ButtonAndDisplayWrapper>
             </MainWrapper>
         </Main>
                 <HiddenValue value={selectedValue.value}></HiddenValue>
@@ -641,11 +515,6 @@ function FormComponent(){
         </>
         
         
-=======
-            <TotalValueDisplay>Итого: {totalPriceValue}</TotalValueDisplay>
-            <SaveButton>Сохранить</SaveButton>
-        </Main>
->>>>>>> 1d9195a3aade667806b3d0f56656f64a640e7aab
     )
 }
 
